@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.d1b05096.chunk.css",
-    "main.js": "/static/js/main.d7314f78.chunk.js",
-    "main.js.map": "/static/js/main.d7314f78.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.863a5c5a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.863a5c5a.js.map",
-    "static/js/2.1db4df67.chunk.js": "/static/js/2.1db4df67.chunk.js",
-    "static/js/2.1db4df67.chunk.js.map": "/static/js/2.1db4df67.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.1896e3ccc310c045ea72c7fbb4aa4ec4.js": "/precache-manifest.1896e3ccc310c045ea72c7fbb4aa4ec4.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.1db4df67.chunk.js.LICENSE": "/static/js/2.1db4df67.chunk.js.LICENSE",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+    "main.css": "/payday2-bigoil/static/css/main.d1b05096.chunk.css",
+    "main.js": "/payday2-bigoil/static/js/main.5f3414e4.chunk.js",
+    "main.js.map": "/payday2-bigoil/static/js/main.5f3414e4.chunk.js.map",
+    "runtime-main.js": "/payday2-bigoil/static/js/runtime-main.7db3f017.js",
+    "runtime-main.js.map": "/payday2-bigoil/static/js/runtime-main.7db3f017.js.map",
+    "static/js/2.1db4df67.chunk.js": "/payday2-bigoil/static/js/2.1db4df67.chunk.js",
+    "static/js/2.1db4df67.chunk.js.map": "/payday2-bigoil/static/js/2.1db4df67.chunk.js.map",
+    "index.html": "/payday2-bigoil/index.html",
+    "precache-manifest.bb78084dd44a51d8a4b6820556b8796f.js": "/payday2-bigoil/precache-manifest.bb78084dd44a51d8a4b6820556b8796f.js",
+    "service-worker.js": "/payday2-bigoil/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/payday2-bigoil/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.1db4df67.chunk.js.LICENSE": "/payday2-bigoil/static/js/2.1db4df67.chunk.js.LICENSE",
+    "static/media/logo.svg": "/payday2-bigoil/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.863a5c5a.js",
+    "static/js/runtime-main.7db3f017.js",
     "static/js/2.1db4df67.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.d7314f78.chunk.js"
+    "static/js/main.5f3414e4.chunk.js"
   ]
 }
