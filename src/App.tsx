@@ -33,7 +33,7 @@ const App: React.FC = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="md">
+      <Container maxWidth="md" disableGutters>
         <Paper className={classes.paper}>
           <Map
             gastank={gastank !== 'unknown' ? gastank : undefined}
