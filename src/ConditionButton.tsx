@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -35,24 +35,24 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({
       <Typography variant="caption" display="block" gutterBottom>
         {label}
       </Typography>
-      <ToggleButtonGroup
-        size="large"
-        value={currentValue}
-        exclusive
-        onChange={onChange}
-      >
+      <ButtonGroup size="large">
         {[{ name: '?????', value: 'unknown' }, ...choices].map(
-          (value, index) => (
-            <ToggleButton
-              key={index}
-              value={typeof value === 'string' ? value : value.value}
-              className={classes.button}
-            >
-              {typeof value === 'string' ? value : value.name}
-            </ToggleButton>
-          ),
+          (choice, index) => {
+            const name = typeof choice === 'string' ? choice : choice.value;
+            const value = typeof choice === 'string' ? choice : choice.value;
+            return (
+              <Button
+                key={index}
+                variant={currentValue === value ? 'contained' : 'outlined'}
+                onClick={event => onChange?.(event, value)}
+                className={classes.button}
+              >
+                {name}
+              </Button>
+            );
+          },
         )}
-      </ToggleButtonGroup>
+      </ButtonGroup>
     </div>
   );
 };
