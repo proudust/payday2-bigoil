@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -43,27 +44,35 @@ const App: React.FC = () => {
         </Paper>
 
         <Paper className={classes.paper}>
-          <ConditionButton
-            label="Gas tank"
-            choices={['deuterium', 'helium', 'nitrogen']}
-            currentValue={gastank}
-            onChange={(_, newGastank) => setGastank(newGastank)}
-          />
-          <ConditionButton
-            label="Nozzles"
-            choices={['1', '2', '3']}
-            currentValue={nozzles}
-            onChange={(_, newNozzles) => setNozzles(newNozzles)}
-          />
-          <ConditionButton
-            label="Pressure"
-            choices={[
-              { name: '≥5783', value: '>' },
-              { name: '≤5812', value: '<' },
-            ]}
-            currentValue={pressure}
-            onChange={(_, newPressure) => setPressure(newPressure)}
-          />
+          <Grid container>
+            <Grid item sm={12} xs={6}>
+              <ConditionButton
+                label="Gas tank"
+                choices={['deuterium', 'helium', 'nitrogen']}
+                currentValue={gastank}
+                onChange={(_, newGastank) => setGastank(newGastank)}
+              />
+            </Grid>
+            <Grid item sm={12} xs={6}>
+              <ConditionButton
+                label="Nozzles"
+                choices={['1', '2', '3']}
+                currentValue={nozzles}
+                onChange={(_, newNozzles) => setNozzles(newNozzles)}
+              />
+            </Grid>
+            <Grid item sm={12} xs={6}>
+              <ConditionButton
+                label="Pressure"
+                choices={[
+                  { name: '≥5783', value: '>' },
+                  { name: '≤5812', value: '<' },
+                ]}
+                currentValue={pressure}
+                onChange={(_, newPressure) => setPressure(newPressure)}
+              />
+            </Grid>
+          </Grid>
         </Paper>
 
         <Paper className={classes.paper}>
