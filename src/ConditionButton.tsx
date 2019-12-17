@@ -1,5 +1,11 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  createStyles,
+  makeStyles,
+  useTheme,
+  Theme,
+} from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Typography from '@material-ui/core/Typography';
@@ -29,13 +35,18 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({
   onChange,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <div className={classes.root}>
       <Typography variant="caption" display="block" gutterBottom>
         {label}
       </Typography>
-      <ButtonGroup size="large">
+      <ButtonGroup
+        size="large"
+        orientation={matches ? 'horizontal' : 'vertical'}
+      >
         {[{ name: '?????', value: 'unknown' }, ...choices].map(
           (choice, index) => {
             const name = typeof choice === 'string' ? choice : choice.value;
