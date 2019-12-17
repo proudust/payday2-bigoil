@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { grey } from '@material-ui/core/colors';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -12,23 +11,6 @@ import { Map } from './Map';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    title: {
-      flexGrow: 1,
-    },
-    map: {
-      'border-width': 1,
-      'border-color': grey[300],
-      'border-style': 'solid',
-      'text-align': 'center',
-    },
-    engine: {
-      'border-width': 1,
-      'border-color': grey[300],
-      'border-style': 'solid',
-    },
     paper: {
       margin: theme.spacing(2),
       padding: theme.spacing(3, 2),
@@ -43,10 +25,10 @@ const App: React.FC = () => {
   const [pressure, setPressure] = useState('unknown');
 
   return (
-    <div className={classes.root}>
+    <>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6">
             Payday2 Big Oil Day2 Engine Problem Calculator
           </Typography>
         </Toolbar>
@@ -113,7 +95,7 @@ const App: React.FC = () => {
           </ul>
         </Paper>
       </Container>
-    </div>
+    </>
   );
 };
 
