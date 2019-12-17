@@ -30,3 +30,5 @@ rules:
     - error
     - singleQuote: true
       trailingComma: "all"
+  react/prop-types:
+    - off
