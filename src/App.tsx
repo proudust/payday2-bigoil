@@ -12,9 +12,12 @@ import { Map } from './Map';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      minWidth: 350,
+    },
     paper: {
       margin: theme.spacing(2),
-      padding: theme.spacing(3, 2),
+      padding: theme.spacing(2),
     },
   }),
 );
@@ -26,7 +29,7 @@ const App: React.FC = () => {
   const [pressure, setPressure] = useState('unknown');
 
   return (
-    <>
+    <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6">
@@ -104,7 +107,7 @@ const App: React.FC = () => {
           </ul>
         </Paper>
       </Container>
-    </>
+    </div>
   );
 };
 
