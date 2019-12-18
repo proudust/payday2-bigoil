@@ -25,6 +25,21 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const links = [
+  {
+    name: 'PayDay2 BigOil Engine Selector',
+    href: 'http://payday2skills.ru/bigoil.html',
+  },
+  {
+    name: 'Big Oil | Payday Wiki | Fandom',
+    href: 'https://payday.fandom.com/wiki/Big_Oil',
+  },
+  {
+    name: 'BIG OIL DAY2 - Payday2 日本語 Wiki*',
+    href: 'https://wikiwiki.jp/payday2ch/BIG%20OIL%20DAY2',
+  },
+];
+
 const App: React.FC = () => {
   const classes = useStyles();
   const [gastank, setGastank] = useState('unknown');
@@ -83,30 +98,16 @@ const App: React.FC = () => {
 
         <Paper className={classes.paper}>
           <Typography variant="h5" component="h3">
-            Link
+            Links
           </Typography>
           <ul>
-            <li>
-              <Typography component="p">
-                <a href="http://payday2skills.ru/bigoil.html">
-                  PayDay2 BigOil Engine Selector
-                </a>
-              </Typography>
-            </li>
-            <li>
-              <Typography component="p">
-                <a href="https://payday.fandom.com/wiki/Big_Oil">
-                  Big Oil | Payday Wiki | Fandom
-                </a>
-              </Typography>
-            </li>
-            <li>
-              <Typography component="p">
-                <a href="https://wikiwiki.jp/payday2ch/BIG%20OIL%20DAY2">
-                  BIG OIL DAY2 - Payday2 日本語 Wiki*
-                </a>
-              </Typography>
-            </li>
+            {links.map(({ name, href }, index) => (
+              <li key={index}>
+                <Typography component="p">
+                  <a href={href}>{name}</a>
+                </Typography>
+              </li>
+            ))}
           </ul>
         </Paper>
       </Container>
