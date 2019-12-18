@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       margin: theme.spacing(2),
       padding: theme.spacing(2),
+      '&> *': {
+        margin: 'auto',
+      },
     },
   }),
 );
