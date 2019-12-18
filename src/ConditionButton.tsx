@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      margin: theme.spacing(2),
+      margin: theme.spacing(1),
     },
     button: {
       minWidth: 128,
