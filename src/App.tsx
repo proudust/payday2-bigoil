@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -48,6 +49,7 @@ const App: React.FC = () => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6">
