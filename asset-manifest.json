@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/payday2-bigoil/static/js/main.86a47940.chunk.js",
-    "main.js.map": "/payday2-bigoil/static/js/main.86a47940.chunk.js.map",
+    "main.js": "/payday2-bigoil/static/js/main.f2203b42.chunk.js",
+    "main.js.map": "/payday2-bigoil/static/js/main.f2203b42.chunk.js.map",
     "runtime-main.js": "/payday2-bigoil/static/js/runtime-main.7db3f017.js",
     "runtime-main.js.map": "/payday2-bigoil/static/js/runtime-main.7db3f017.js.map",
-    "static/js/2.9a0c3b27.chunk.js": "/payday2-bigoil/static/js/2.9a0c3b27.chunk.js",
-    "static/js/2.9a0c3b27.chunk.js.map": "/payday2-bigoil/static/js/2.9a0c3b27.chunk.js.map",
+    "static/js/2.93f2f7ab.chunk.js": "/payday2-bigoil/static/js/2.93f2f7ab.chunk.js",
+    "static/js/2.93f2f7ab.chunk.js.map": "/payday2-bigoil/static/js/2.93f2f7ab.chunk.js.map",
     "index.html": "/payday2-bigoil/index.html",
-    "precache-manifest.d98b2103e3a68299cdc01f3e0aa3b42b.js": "/payday2-bigoil/precache-manifest.d98b2103e3a68299cdc01f3e0aa3b42b.js",
+    "precache-manifest.057e2dc2abafb01f0833f6ee517d5b7e.js": "/payday2-bigoil/precache-manifest.057e2dc2abafb01f0833f6ee517d5b7e.js",
     "service-worker.js": "/payday2-bigoil/service-worker.js",
-    "static/js/2.9a0c3b27.chunk.js.LICENSE": "/payday2-bigoil/static/js/2.9a0c3b27.chunk.js.LICENSE"
+    "static/js/2.93f2f7ab.chunk.js.LICENSE": "/payday2-bigoil/static/js/2.93f2f7ab.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.7db3f017.js",
-    "static/js/2.9a0c3b27.chunk.js",
-    "static/js/main.86a47940.chunk.js"
+    "static/js/2.93f2f7ab.chunk.js",
+    "static/js/main.f2203b42.chunk.js"
   ]
 }
