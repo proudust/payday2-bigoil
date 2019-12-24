@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  createStyles,
+  makeStyles,
+  Theme,
+  useTheme,
+} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { ArrowBack } from '@material-ui/icons';
 
 import { ConditionButton } from './ConditionButton';
 import { Map } from './Map';
@@ -43,6 +50,7 @@ const links = [
 
 const App: React.FC = () => {
   const classes = useStyles();
+  const theme = useTheme();
   const [gastank, setGastank] = useState('unknown');
   const [nozzles, setNozzles] = useState('unknown');
   const [pressure, setPressure] = useState('unknown');
@@ -52,6 +60,16 @@ const App: React.FC = () => {
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="back"
+            component="a"
+            href=".."
+            style={{ marginRight: theme.spacing(2) }}
+          >
+            <ArrowBack />
+          </IconButton>
           <Typography variant="h6">
             Payday2 Big Oil Day2 Engine Problem Calculator
           </Typography>
