@@ -49,7 +49,7 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({
       >
         {[{ name: '?????', value: 'unknown' }, ...choices].map(
           (choice, index) => {
-            const name = typeof choice === 'string' ? choice : choice.value;
+            const name = typeof choice === 'string' ? choice : choice.name;
             const value = typeof choice === 'string' ? choice : choice.value;
             return (
               <Button
