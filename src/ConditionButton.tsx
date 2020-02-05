@@ -6,21 +6,24 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Typography from '@material-ui/core/Typography';
 
+const unknownChoice = { name: '?????', value: 'unknown' } as const;
+
 const modes = {
   gastank: {
     name: 'Gas tank',
-    choices: ['deuterium', 'helium', 'nitrogen'],
+    choices: [unknownChoice, 'deuterium', 'helium', 'nitrogen'],
   },
   nozzles: {
     name: 'Nozzles',
-    choices: ['1', '2', '3'],
+    choices: [unknownChoice, '1', '2', '3'],
   },
   pressure: {
     name: 'Gas tank',
-    choices: [
-      { name: '≥5783', value: '>' },
-      { name: '≤5812', value: '<' },
-    ],
+    choices: [unknownChoice, { name: '≥5783', value: '>' }, { name: '≤5812', value: '<' }],
+  },
+  assets: {
+    name: 'Cold Fusion Research',
+    choices: ['not', 'get'],
   },
 } as const;
 
@@ -41,12 +44,14 @@ interface ConditionButtonProps {
 }
 
 export const ConditionButton: React.FC<ConditionButtonProps> = ({ mode }) => {
-  const { name, choices } = modes[mode];
   const dispatch = useDispatch();
   const condition = useSelector(state => state.condition);
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const { name, choices } = modes[mode];
+  const disabled = (mode === 'gastank' || mode === 'nozzles') && condition.assets === 'get';
 
   return (
     <div className={classes.root}>
@@ -54,7 +59,7 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({ mode }) => {
         {name}
       </Typography>
       <ButtonGroup size="large" orientation={matches ? 'horizontal' : 'vertical'}>
-        {[{ name: '?????', value: 'unknown' }, ...choices].map((choice, index) => {
+        {[...choices].map((choice, index) => {
           const name = typeof choice === 'string' ? choice : choice.name;
           const value = typeof choice === 'string' ? choice : choice.value;
           return (
@@ -63,6 +68,7 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({ mode }) => {
               variant={condition[mode] === value ? 'contained' : 'outlined'}
               onClick={_ => dispatch({ type: 'CONDITION_CHANGED', [mode]: value })}
               className={classes.button}
+              disabled={disabled}
             >
               {name}
             </Button>

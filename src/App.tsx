@@ -72,7 +72,7 @@ const App: React.FC = () => {
 
         <Paper className={classes.paper}>
           <Grid container>
-            {(['gastank', 'nozzles', 'pressure'] as const).map((mode, index) => (
+            {(['gastank', 'nozzles', 'pressure', 'assets'] as const).map((mode, index) => (
               <Grid item sm={12} xs={6} key={index}>
                 <ConditionButton mode={mode} />
               </Grid>
