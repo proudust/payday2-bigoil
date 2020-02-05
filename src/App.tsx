@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
@@ -42,11 +41,9 @@ const links = [
     name: 'BIG OIL DAY2 - Payday2 日本語 Wiki*',
     href: 'https://wikiwiki.jp/payday2ch/BIG%20OIL%20DAY2',
   },
-];
+] as const;
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
-  const condition = useSelector(state => state.condition);
   const classes = useStyles();
   const theme = useTheme();
 
@@ -75,33 +72,11 @@ const App: React.FC = () => {
 
         <Paper className={classes.paper}>
           <Grid container>
-            <Grid item sm={12} xs={6}>
-              <ConditionButton
-                label="Gas tank"
-                choices={['deuterium', 'helium', 'nitrogen']}
-                currentValue={condition.gastank}
-                onChange={(_, gastank) => dispatch({ type: 'CONDITION_CHANGED', gastank })}
-              />
-            </Grid>
-            <Grid item sm={12} xs={6}>
-              <ConditionButton
-                label="Nozzles"
-                choices={['1', '2', '3']}
-                currentValue={condition.nozzles}
-                onChange={(_, nozzles) => dispatch({ type: 'CONDITION_CHANGED', nozzles })}
-              />
-            </Grid>
-            <Grid item sm={12} xs={6}>
-              <ConditionButton
-                label="Pressure"
-                choices={[
-                  { name: '≥5783', value: '>' },
-                  { name: '≤5812', value: '<' },
-                ]}
-                currentValue={condition.pressure}
-                onChange={(_, pressure) => dispatch({ type: 'CONDITION_CHANGED', pressure })}
-              />
-            </Grid>
+            {(['gastank', 'nozzles', 'pressure'] as const).map((mode, index) => (
+              <Grid item sm={12} xs={6} key={index}>
+                <ConditionButton mode={mode} />
+              </Grid>
+            ))}
           </Grid>
         </Paper>
 
