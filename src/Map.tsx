@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { blue, green, grey, yellow } from '@material-ui/core/colors';
 
@@ -114,20 +115,19 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface EngineCellProps {
+  children?: never;
   id: number;
-  gastank?: string;
-  nozzles?: string;
-  pressure?: string;
 }
 
 const EngineCell: React.FC<EngineCellProps> = (props: EngineCellProps) => {
+  const condition = useSelector(state => state.condition);
   const classes = useStyles();
   const engine = engines[props.id];
   const isWrong =
     !!engine.ignore ||
-    (props.gastank ? engine.gastank !== props.gastank : false) ||
-    (props.nozzles ? engine.nozzles.toString() !== props.nozzles : false) ||
-    (props.pressure ? engine.pressure !== props.pressure : false);
+    (condition.gastank !== 'unknown' && condition.gastank !== engine.gastank) ||
+    (condition.nozzles !== 'unknown' && condition.nozzles !== engine.nozzles.toString()) ||
+    (condition.pressure !== 'unknown' && condition.pressure !== engine.pressure);
 
   const gasView = {
     deuterium: <span className={classes.deuterium}>D</span>,
@@ -145,9 +145,7 @@ const EngineCell: React.FC<EngineCellProps> = (props: EngineCellProps) => {
 };
 
 interface MapProps {
-  gastank?: string;
-  nozzles?: string;
-  pressure?: string;
+  children?: never;
 }
 
 export const Map: React.FC<MapProps> = (props: MapProps) => {
@@ -162,83 +160,23 @@ export const Map: React.FC<MapProps> = (props: MapProps) => {
           <td colSpan={2}></td>
         </tr>
         <tr>
-          <EngineCell
-            id={12}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={7}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
+          <EngineCell id={12} />
+          <EngineCell id={7} />
           <td rowSpan={3}>Stairs</td>
-          <EngineCell
-            id={2}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={1}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
+          <EngineCell id={2} />
+          <EngineCell id={1} />
         </tr>
         <tr>
-          <EngineCell
-            id={10}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={9}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={4}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={3}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
+          <EngineCell id={10} />
+          <EngineCell id={9} />
+          <EngineCell id={4} />
+          <EngineCell id={3} />
         </tr>
         <tr>
-          <EngineCell
-            id={8}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={11}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={6}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
-          <EngineCell
-            id={5}
-            gastank={props.gastank}
-            nozzles={props.nozzles}
-            pressure={props.pressure}
-          />
+          <EngineCell id={8} />
+          <EngineCell id={11} />
+          <EngineCell id={6} />
+          <EngineCell id={5} />
         </tr>
       </tbody>
     </table>

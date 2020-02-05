@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface ConditionButtonProps {
+  children?: never;
   label: string;
   choices: (string | { name: string; value: string })[];
   currentValue: string;

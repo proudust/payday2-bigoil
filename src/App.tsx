@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
@@ -44,11 +45,10 @@ const links = [
 ];
 
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+  const condition = useSelector(state => state.condition);
   const classes = useStyles();
   const theme = useTheme();
-  const [gastank, setGastank] = useState('unknown');
-  const [nozzles, setNozzles] = useState('unknown');
-  const [pressure, setPressure] = useState('unknown');
 
   return (
     <div className={classes.root}>
@@ -70,11 +70,7 @@ const App: React.FC = () => {
       </AppBar>
       <Container maxWidth="sm" disableGutters>
         <Paper className={classes.paper}>
-          <Map
-            gastank={gastank !== 'unknown' ? gastank : undefined}
-            nozzles={nozzles !== 'unknown' ? nozzles : undefined}
-            pressure={pressure !== 'unknown' ? pressure : undefined}
-          />
+          <Map />
         </Paper>
 
         <Paper className={classes.paper}>
@@ -83,16 +79,16 @@ const App: React.FC = () => {
               <ConditionButton
                 label="Gas tank"
                 choices={['deuterium', 'helium', 'nitrogen']}
-                currentValue={gastank}
-                onChange={(_, newGastank) => setGastank(newGastank)}
+                currentValue={condition.gastank}
+                onChange={(_, gastank) => dispatch({ type: 'CONDITION_CHANGED', gastank })}
               />
             </Grid>
             <Grid item sm={12} xs={6}>
               <ConditionButton
                 label="Nozzles"
                 choices={['1', '2', '3']}
-                currentValue={nozzles}
-                onChange={(_, newNozzles) => setNozzles(newNozzles)}
+                currentValue={condition.nozzles}
+                onChange={(_, nozzles) => dispatch({ type: 'CONDITION_CHANGED', nozzles })}
               />
             </Grid>
             <Grid item sm={12} xs={6}>
@@ -102,8 +98,8 @@ const App: React.FC = () => {
                   { name: '≥5783', value: '>' },
                   { name: '≤5812', value: '<' },
                 ]}
-                currentValue={pressure}
-                onChange={(_, newPressure) => setPressure(newPressure)}
+                currentValue={condition.pressure}
+                onChange={(_, pressure) => dispatch({ type: 'CONDITION_CHANGED', pressure })}
               />
             </Grid>
           </Grid>
