@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  createStyles,
-  makeStyles,
-  useTheme,
-  Theme,
-} from '@material-ui/core/styles';
+import { createStyles, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -43,26 +38,21 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({
       <Typography variant="caption" display="block" gutterBottom>
         {label}
       </Typography>
-      <ButtonGroup
-        size="large"
-        orientation={matches ? 'horizontal' : 'vertical'}
-      >
-        {[{ name: '?????', value: 'unknown' }, ...choices].map(
-          (choice, index) => {
-            const name = typeof choice === 'string' ? choice : choice.name;
-            const value = typeof choice === 'string' ? choice : choice.value;
-            return (
-              <Button
-                key={index}
-                variant={currentValue === value ? 'contained' : 'outlined'}
-                onClick={event => onChange?.(event, value)}
-                className={classes.button}
-              >
-                {name}
-              </Button>
-            );
-          },
-        )}
+      <ButtonGroup size="large" orientation={matches ? 'horizontal' : 'vertical'}>
+        {[{ name: '?????', value: 'unknown' }, ...choices].map((choice, index) => {
+          const name = typeof choice === 'string' ? choice : choice.name;
+          const value = typeof choice === 'string' ? choice : choice.value;
+          return (
+            <Button
+              key={index}
+              variant={currentValue === value ? 'contained' : 'outlined'}
+              onClick={event => onChange?.(event, value)}
+              className={classes.button}
+            >
+              {name}
+            </Button>
+          );
+        })}
       </ButtonGroup>
     </div>
   );

@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  createStyles,
-  makeStyles,
-  Theme,
-  useTheme,
-} from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -70,9 +65,7 @@ const App: React.FC = () => {
           >
             <ArrowBack />
           </IconButton>
-          <Typography variant="h6">
-            Payday2 Big Oil Day2 Engine Problem Calculator
-          </Typography>
+          <Typography variant="h6">Payday2 Big Oil Day2 Engine Problem Calculator</Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth="sm" disableGutters>
