@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/payday2-bigoil/precache-manifest.810a5c984bfc3115c709b757b85d4be7.js"
+  "/payday2-bigoil/precache-manifest.3240d8186a848420c460046bf9405b6a.js"
 );
 
 self.addEventListener('message', (event) => {
