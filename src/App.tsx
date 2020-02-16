@@ -1,7 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 import { Layout } from './layout/Layout';
@@ -55,18 +58,13 @@ const App: React.FC = () => {
       </Paper>
 
       <Paper className={classes.paper}>
-        <Typography variant="h5" component="h3">
-          Links
-        </Typography>
-        <ul>
+        <List subheader={<ListSubheader>Links</ListSubheader>}>
           {links.map(({ name, href }, index) => (
-            <li key={index}>
-              <Typography component="p">
-                <a href={href}>{name}</a>
-              </Typography>
-            </li>
+            <ListItem component="a" href={href} key={index} button>
+              <ListItemText primary={name} />
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </Paper>
     </Layout>
   );
