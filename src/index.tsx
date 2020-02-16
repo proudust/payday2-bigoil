@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 
 import App from './App';
 import { reducer } from './reducer';
+import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer);
 
@@ -14,3 +15,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
+
+serviceWorker.register();
