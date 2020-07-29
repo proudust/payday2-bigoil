@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { createStyles, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Typography from '@material-ui/core/Typography';
+
+import { useBigOilContext } from './BigOilContext';
 
 const unknownChoice = { name: '?????', value: 'unknown' } as const;
 
@@ -44,14 +45,13 @@ interface ConditionButtonProps {
 }
 
 export const ConditionButton: React.FC<ConditionButtonProps> = ({ mode }) => {
-  const dispatch = useDispatch();
-  const condition = useSelector(state => state.condition);
+  const { values, setters } = useBigOilContext();
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   const { name, choices } = modes[mode];
-  const disabled = (mode === 'gastank' || mode === 'nozzles') && condition.assets === 'get';
+  const disabled = (mode === 'gastank' || mode === 'nozzles') && values.assets === 'get';
 
   return (
     <div className={classes.root}>
@@ -65,8 +65,8 @@ export const ConditionButton: React.FC<ConditionButtonProps> = ({ mode }) => {
           return (
             <Button
               key={index}
-              variant={condition[mode] === value ? 'contained' : 'outlined'}
-              onClick={_ => dispatch({ type: 'CONDITION_CHANGED', [mode]: value })}
+              variant={values[mode] === value ? 'contained' : 'outlined'}
+              onClick={() => setters[mode](value as never)}
               className={classes.button}
               disabled={disabled}
             >

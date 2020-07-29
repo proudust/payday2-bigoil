@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
 import App from './App';
-import { reducer } from './reducer';
+import { BigOilContextProvider } from './BigOilContext';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer);
-
 ReactDOM.render(
-  <Provider store={store}>
+  <BigOilContextProvider>
     <App />
-  </Provider>,
+  </BigOilContextProvider>,
   document.getElementById('root'),
 );
 

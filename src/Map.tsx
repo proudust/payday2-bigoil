@@ -1,7 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { blue, green, grey, yellow } from '@material-ui/core/colors';
+
+import { useBigOilContext } from './BigOilContext';
 
 interface Engines {
   [key: number]: {
@@ -120,14 +121,14 @@ interface EngineCellProps {
 }
 
 const EngineCell: React.FC<EngineCellProps> = (props: EngineCellProps) => {
-  const condition = useSelector(state => state.condition);
+  const { values } = useBigOilContext();
   const classes = useStyles();
   const engine = engines[props.id];
   const isWrong =
     !!engine.ignore ||
-    (condition.gastank !== 'unknown' && condition.gastank !== engine.gastank) ||
-    (condition.nozzles !== 'unknown' && condition.nozzles !== engine.nozzles.toString()) ||
-    (condition.pressure !== 'unknown' && condition.pressure !== engine.pressure);
+    (values.gastank !== 'unknown' && values.gastank !== engine.gastank) ||
+    (values.nozzles !== 'unknown' && values.nozzles !== engine.nozzles.toString()) ||
+    (values.pressure !== 'unknown' && values.pressure !== engine.pressure);
 
   const gasView = {
     deuterium: <span className={classes.deuterium}>D</span>,
