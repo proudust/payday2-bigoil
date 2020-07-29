@@ -6,7 +6,7 @@ import { DefaultAppBar } from './AppBar';
 import { ApplyTheme } from './ApplyTheme';
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNodeArray;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => (
