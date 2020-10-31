@@ -60,9 +60,11 @@ const App: React.FC = () => {
       <Paper className={classes.paper}>
         <List subheader={<ListSubheader>Links</ListSubheader>}>
           {links.map(({ name, href }, index) => (
-            <ListItem component="a" href={href} key={index} button>
-              <ListItemText primary={name} />
-            </ListItem>
+            <li key={index}>
+              <ListItem component="a" href={href} button>
+                <ListItemText primary={name} />
+              </ListItem>
+            </li>
           ))}
         </List>
       </Paper>
