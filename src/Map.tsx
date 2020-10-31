@@ -104,10 +104,10 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: 0.2,
     },
     deuterium: {
-      color: blue[500],
+      color: blue[400],
     },
     helium: {
-      color: green[500],
+      color: green[300],
     },
     nitrogen: {
       color: yellow[900],
