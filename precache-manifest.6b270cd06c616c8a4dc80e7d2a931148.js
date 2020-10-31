@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14e6fe158549fcd440fb5a0b25435f9c",
+    "revision": "a37467b761f25430fd5b968cd2ef0af7",
     "url": "/payday2-bigoil/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/payday2-bigoil/static/js/2.a0b3b7bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ba282689f50a68ab9f35",
-    "url": "/payday2-bigoil/static/js/main.9631576c.chunk.js"
+    "revision": "2a8771fd284c1a1cbe03",
+    "url": "/payday2-bigoil/static/js/main.3c84a7b8.chunk.js"
   },
   {
     "revision": "7257e092a96b6d929522",
