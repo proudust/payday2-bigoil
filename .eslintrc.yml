@@ -4,37 +4,15 @@ env:
   node: true
 
 extends:
-  - plugin:prettier/recommended
+  - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
   - react-app
 
 plugins:
-  - prettier
   - react
 
 rules:
-  prettier/prettier:
-    - error
-    - arrowParens: avoid
-      printWidth: 100
-      singleQuote: true
-      trailingComma: all
-  react/prop-types:
-    - off
-
-overrides:
-  - files: ["**/*.ts"]
-    parser: "@typescript-eslint/parser"
-    parserOptions:
-      sourceType: module
-
-    extends:
-      - plugin:@typescript-eslint/recommended
-      - prettier/@typescript-eslint
-    plugins:
-      - "@typescript-eslint"
-
-    rules:
-      "@typescript-eslint/explicit-function-return-type":
-        - warn
-        - allowExpressions: true
+  '@typescript-eslint/explicit-function-return-type':
+    - warn
+    - allowExpressions: true
+  react/prop-types: off

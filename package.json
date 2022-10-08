@@ -19,7 +19,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.5",
     "prettier": "^2.0.5",
@@ -28,9 +27,13 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
+    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "fix:eslint": "npm run lint:eslint --fix",
+    "fix:prettier": "prettier --write .",
     "preview": "vite preview",
-    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
-    "lint:ci": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint:prettier": "prettier --check ."
   },
   "browserslist": {
     "production": [
